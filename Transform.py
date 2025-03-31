@@ -32,3 +32,12 @@ substituicoes = {
 }
 for col in df.columns:
     df[col] = df[col].replace(substituicoes)
+
+# Salva o DataFrame como CSV
+df.to_csv(csv_path, index=False)
+
+# Compacta o CSV em um arquivo ZIP
+with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
+    zipf.write(csv_path, os.path.basename(csv_path))
+
+print(f"CSV salvo como '{csv_path}' e compactado em '{zip_path}'.")
