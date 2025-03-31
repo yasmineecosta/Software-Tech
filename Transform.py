@@ -20,3 +20,15 @@ if os.path.exists(pdf_path):
 else:
     print(f"Erro: O arquivo PDF '{pdf_path}' não foi encontrado.")
     exit(1)
+
+# Concatena em um único DataFrame
+dataframes = [pd.DataFrame(table[1:], columns=table[0]) for table in all_tables if table[0]]
+df = pd.concat(dataframes, ignore_index=True)
+
+# Substitui siglas por descrições conforme legenda do PDF
+substituicoes = {
+    "OD": "Seg. Odontológica",
+    "AMB": "Seg. Ambulatorial"
+}
+for col in df.columns:
+    df[col] = df[col].replace(substituicoes)
