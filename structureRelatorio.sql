@@ -38,3 +38,7 @@ IGNORE 1 ROWS
 (registro_ans, cnpj, razao_social, nome_fantasia, modalidade, logradouro, numero,
  complemento, bairro, cidade, uf, cep, ddd, telefone, fax, endereco_eletronico,
  representante, cargo_representante, regiao_de_comercializacao, data_registro_ans);
+
+-- Visualização dos dados importados
+SELECT * FROM operadoras;
+
