@@ -13,3 +13,80 @@ CREATE TABLE despesas_saude (
     trimestre INT
 );
   
+-- 1º Trimestre de 2023
+LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/1T2023.csv'
+INTO TABLE despesas_saude
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(@data, @reg_ans, @cd_conta_contabil, @descricao, @vl_saldo_inicial, @vl_saldo_final)
+SET
+  data = STR_TO_DATE(@data, '%Y-%m-%d'),
+  reg_ans = @reg_ans,
+  cd_conta_contabil = @cd_conta_contabil,
+  descricao = @descricao,
+  vl_saldo_inicial = @vl_saldo_inicial,
+  vl_saldo_final = @vl_saldo_final,
+  ano = 2023,
+  trimestre = 1;
+  
+-- 2º Trimestre de 2023
+LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/2t2023.csv'
+INTO TABLE despesas_saude
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(@data, @reg_ans, @cd_conta_contabil, @descricao, @vl_saldo_inicial, @vl_saldo_final)
+SET
+  data = STR_TO_DATE(@data, '%Y-%m-%d'),
+  reg_ans = @reg_ans,
+  cd_conta_contabil = @cd_conta_contabil,
+  descricao = @descricao,
+  vl_saldo_inicial = @vl_saldo_inicial,
+  vl_saldo_final = @vl_saldo_final,
+  ano = 2023,
+  trimestre = 2;
+
+-- 3º Trimestre de 2023
+LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/3T2023.csv'
+INTO TABLE despesas_saude
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(@data, @reg_ans, @cd_conta_contabil, @descricao, @vl_saldo_inicial, @vl_saldo_final)
+SET
+  data = STR_TO_DATE(@data, '%Y-%m-%d'),
+  reg_ans = @reg_ans,
+  cd_conta_contabil = @cd_conta_contabil,
+  descricao = @descricao,
+  vl_saldo_inicial = @vl_saldo_inicial,
+  vl_saldo_final = @vl_saldo_final,
+  ano = 2023,
+  trimestre = 3;
+  
+-- 4º Trimestre de 2023
+LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/4T2023.csv'
+INTO TABLE despesas_saude
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(@data, @reg_ans, @cd_conta_contabil, @descricao, @vl_saldo_inicial, @vl_saldo_final)
+SET
+  data = STR_TO_DATE(@data, '%Y-%m-%d'),
+  reg_ans = @reg_ans,
+  cd_conta_contabil = @cd_conta_contabil,
+  descricao = @descricao,
+  vl_saldo_inicial = @vl_saldo_inicial,
+  vl_saldo_final = @vl_saldo_final,
+  ano = 2023,
+  trimestre = 4;
+    
+    
