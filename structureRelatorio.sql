@@ -26,3 +26,15 @@ CREATE TABLE operadoras (
     data_registro_ans DATE
 );
 
+-- Importando os dados do arquivo CSV 
+-- O caminho do arquivo deve ser alterado para o local correto no seu sistema
+LOAD DATA LOCAL INFILE 'D:/Downloads/Relatorio_cadop.csv'
+INTO TABLE operadoras
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(registro_ans, cnpj, razao_social, nome_fantasia, modalidade, logradouro, numero,
+ complemento, bairro, cidade, uf, cep, ddd, telefone, fax, endereco_eletronico,
+ representante, cargo_representante, regiao_de_comercializacao, data_registro_ans);
