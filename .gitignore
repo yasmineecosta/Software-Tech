@@ -1,0 +1,8 @@
+# Arquivos Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 📁 Diretórios e arquivos gerados pelo script
+anexos/
+anexos_rol_procedimentos.zip
