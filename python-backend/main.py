@@ -1,7 +1,12 @@
 from fastapi import FastAPI, Query, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-
+from typing import List
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 import pandas as pd
+import csv
+import io
+import json
 import numpy as np
 
 
@@ -27,3 +32,8 @@ df = df.rename(columns={
 })
 df = df.where(pd.notnull(df), None)
  # Substitui NaN por None para evitar erros JSON
+
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
