@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca de Operadoras</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+          <h1>Buscar Operadoras</h1>
+          <input type="text" v-model="termoBusca" placeholder="Digite um termo...">
+      
+          <div v-if="carregando">Buscando...</div>
+          <div v-if="erro" class="erro">Erro: {{ erro }}</div>
+      
+          <!-- Sugestões enquanto digita -->
+          <ul v-if="resultados.length" class="lista-operadoras">
+            <li v-for="op in resultados" :key="op.registro_ans" @click="selecionar(op)">
+              {{ op.razao_social }}
+            </li>
+          </ul>
+      
+          <!-- Tabela completa abaixo -->
+          <table v-if="resultados.length">
+            <thead>
+              <tr>
+                <th>Registro ANS</th>
+                <th>Razão Social</th>
+                <th>Nome Fantasia</th>
+                <th>Cidade</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr v-for="op in resultados" :key="op.registro_ans">
+                  <td>{{ op.registro_ans || 'N/A' }}</td>
+                  <td>{{ op.razao_social || 'N/A' }}</td>
+                  <td>{{ op.nome_fantasia || 'N/A' }}</td>
+                  <td>{{ op.cidade || 'N/A' }}</td>
+                </tr>
+              </tbody>
+          </table>
+      
+          <p v-if="!carregando && resultados.length === 0 && termoBusca.length > 2">
+            Nenhum resultado encontrado.
+          </p>
+        </div>
+      </div>
+      
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
