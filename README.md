@@ -50,10 +50,6 @@ cd Software-Tech
 ```
 
 ### 2. Instalar dependências
-```bash
-pip install -r requirements.txt
-```
-> Ou instale manualmente:
 > ```bash
 > pip install pdfplumber pandas requests beautifulsoup4 fastapi uvicorn
 > ```
@@ -91,7 +87,48 @@ Acesse [http://localhost:8000](http://localhost:8000)
 ## Endpoints Disponíveis
 
 - `GET /` - Teste de conexão com o servidor
-- `GET /build` - Retorna dados do CSV `Relatorio_cadop.csv`
+- 
+### 🔍 `GET /verificar`
+- Retorna uma visão geral do arquivo CSV carregado em memória.
+- Mostra o número total de linhas e os nomes das colunas.
+- Útil para verificar se os dados foram carregados corretamente.
+
+**Exemplo de resposta:**
+```json
+{
+  "linhas": 1108,
+  "colunas": ["registro_ans", "cnpj", "razao_social", "nome_fantasia", ...]
+}
+```
+
+### 🔎 `GET /busca?q=texto`
+- Realiza uma busca textual por **qualquer termo** presente em **qualquer campo** da base de dados.
+- A busca ignora maiúsculas/minúsculas (case-insensitive).
+- Retorna os **15 primeiros resultados** encontrados.
+
+**Processamento realizado:**
+1. Procura o termo informado (`q`) em todas as colunas do CSV.
+2. Converte os resultados para um dicionário Python.
+3. Trata valores ausentes (`NaN`, `inf`) substituindo por `null` (compatível com JSON).
+4. Garante que a resposta seja **segura para o frontend**, evitando valores inválidos.
+
+**Exemplo de requisição:**
+```
+GET /busca?q=unimed
+```
+
+**Exemplo de resposta:**
+```json
+[
+  {
+    "registro_ans": 12345,
+    "razao_social": "UNIMED DO BRASIL",
+    "cidade": "São Paulo"
+  },
+  ...
+]
+```
+
 
 (Em desenvolvimento: endpoint de busca textual entre operadoras)
 
