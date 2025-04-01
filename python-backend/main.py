@@ -37,3 +37,24 @@ df = df.where(pd.notnull(df), None)
 @app.get("/")
 def root():
     return {"message": "Hello World"}
+
+@app.get("/verificar")
+def verificar_csv():
+    return {"linhas": len(df), "colunas": list(df.columns)}
+
+@app.get("/busca")
+def buscar_operadoras(q: str = Query(..., min_length=1)):
+    resultados = df[df.apply(
+        lambda row: row.astype(str).apply(lambda val: q.lower() in val.lower()).any(), axis=1
+    )].head(15)
+
+    # Substitui NaN, inf, -inf por None
+    resultados = resultados.replace([np.nan, np.inf, -np.inf], None)
+
+    # Converte para dicionário
+    registros = resultados.to_dict(orient="records")
+
+    # Serializa JSON com proteção contra valores inválidos
+    json_str = json.dumps(registros, allow_nan=False)
+
+    return JSONResponse(content=json.loads(json_str))
