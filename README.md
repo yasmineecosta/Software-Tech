@@ -50,10 +50,6 @@ cd Software-Tech
 ```
 
 ### 2. Instalar dependências
-```bash
-pip install -r requirements.txt
-```
-> Ou instale manualmente:
 > ```bash
 > pip install pdfplumber pandas requests beautifulsoup4 fastapi uvicorn
 > ```
