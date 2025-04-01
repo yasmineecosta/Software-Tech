@@ -13,7 +13,7 @@ createApp({
   watch: {
     termoBusca(novoTermo) {
       clearTimeout(this.timeout);
-      if (novoTermo.length >= 2) {
+      if (novoTermo.length >= 1) {
         // Espera 400ms antes de buscar
         this.timeout = setTimeout(this.buscar, 400);
       } else {
