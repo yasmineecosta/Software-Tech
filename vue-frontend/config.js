@@ -1,1 +1,1 @@
-const BASE_URL = "https://software-tech.vercel.app/";
+const BASE_URL = "https://software-tech.vercel.app";
