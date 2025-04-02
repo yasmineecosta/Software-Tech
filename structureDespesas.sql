@@ -14,7 +14,7 @@ CREATE TABLE despesas_saude (
 );
   
 -- 1º Trimestre de 2023
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/1T2023.csv'
+LOAD DATA LOCAL INFILE 'dados/1T2023.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -33,7 +33,7 @@ SET
   trimestre = 1;
   
 -- 2º Trimestre de 2023
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/2t2023.csv'
+LOAD DATA LOCAL INFILE 'dados/2t2023.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -52,7 +52,7 @@ SET
   trimestre = 2;
 
 -- 3º Trimestre de 2023
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/3T2023.csv'
+LOAD DATA LOCAL INFILE 'dados/3T2023.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -71,7 +71,7 @@ SET
   trimestre = 3;
   
 -- 4º Trimestre de 2023
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/4T2023.csv'
+LOAD DATA LOCAL INFILE 'dados/4T2023.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -91,7 +91,7 @@ SET
     
     
 -- 1º Trimestre de 2024
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/1T2024.csv'
+LOAD DATA LOCAL INFILE 'dados/1T2024.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -111,7 +111,7 @@ SET
   -- pra cada ano e trimestre 
   
 -- 2º Trimestre de 2024
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/2t2024.csv'
+LOAD DATA LOCAL INFILE 'dados/2t2024.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -130,7 +130,7 @@ SET
   trimestre = 2;
 
 -- 3º Trimestre de 2024
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/3T2024.csv'
+LOAD DATA LOCAL INFILE 'dados/3T2024.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
@@ -149,7 +149,7 @@ SET
   trimestre = 3;
   
 -- 4º Trimestre de 2024
-LOAD DATA LOCAL INFILE 'D:/Downloads/archieves/4T2024.csv'
+LOAD DATA LOCAL INFILE 'dados/4T2024.csv'
 INTO TABLE despesas_saude
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
