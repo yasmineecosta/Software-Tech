@@ -28,7 +28,7 @@ CREATE TABLE operadoras (
 
 -- Importando os dados do arquivo CSV 
 -- O caminho do arquivo deve ser alterado para o local correto no seu sistema
-LOAD DATA LOCAL INFILE 'D:/Downloads/Relatorio_cadop.csv'
+LOAD DATA LOCAL INFILE 'dados/Relatorio_cadop.csv'
 INTO TABLE operadoras
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
