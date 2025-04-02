@@ -1,4 +1,1 @@
-<<<<<<< HEAD
-const BASE_URL = "https://software-tech.vercel.app";
-=======
->>>>>>> ff2b0332212b2e1a704df0b5639f74de3e520df5
+const BASE_URL = "https://software-tech-api.onrender.com";
