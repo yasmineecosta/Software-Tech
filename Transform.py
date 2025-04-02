@@ -1,10 +1,13 @@
 import os
 import zipfile
+import dotenv
 import pandas as pd
 import pdfplumber
+from dotenv import load_dotenv
 
+load_dotenv()
 
-pdf_path = "C:\\Users\\Yasmine Martins\\Desktop\\vsCode\\Software-Tech\\anexos\\anexo_i.pdf"
+pdf_path = os.getenv("PDF_PATH")
 csv_path = "rol_procedimentos.csv"
 zip_path = "Teste_Yasmine.zip" 
 
