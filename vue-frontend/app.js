@@ -30,7 +30,7 @@ createApp({
       this.carregando = true;
       this.erro = null;
       try {
-        const resposta = await fetch(`http://localhost:8000/busca?q=${this.termoBusca}`);
+        const resposta = await fetch(`${BASE_URL}/busca?q=${this.termoBusca}`);
         console.log("Status da resposta:", resposta.status); // Log do status
         if (!resposta.ok) throw new Error("Erro na requisição: " + resposta.status);
         const dados = await resposta.json();
