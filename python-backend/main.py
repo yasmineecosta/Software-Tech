@@ -10,9 +10,12 @@ import json
 import numpy as np
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 load_dotenv()
 
+BASE_DIR = Path(__file__).resolve().parent
+csv_path = BASE_DIR / "Relatorio_cadop.csv"
 
 frontend_origin = os.getenv("FRONTEND_ORIGIN")
 app = FastAPI()
@@ -21,14 +24,14 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     # allow_origins=["*"], 
-    allow_origins=[frontend_origin], # Substitua pelo domínio do seu frontend
+    allow_origins=[frontend_origin,"http://127.0.0.1:5500"], # Substitua pelo domínio do seu frontend
     # allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Carrega o CSV uma vez na memória
-df = pd.read_csv("Relatorio_cadop.csv", sep=";", encoding="utf-8")
+df = pd.read_csv(csv_path, sep=";", encoding="utf-8")
 df = df.rename(columns={
     "Registro_ANS": "registro_ans",
     "Razao_Social": "razao_social",
