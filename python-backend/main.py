@@ -8,15 +8,20 @@ import csv
 import io
 import json
 import numpy as np
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
+frontend_origin = os.getenv("FRONTEND_ORIGIN")
 app = FastAPI()
 # python -m uvicorn server:app --reload
 # Permitir acesso do frontend (Vue.js) 
 app.add_middleware(
     CORSMiddleware,
     # allow_origins=["*"], 
-    allow_origins=["http://127.0.0.1:5500"],
+    allow_origins=[frontend_origin], # Substitua pelo domínio do seu frontend
     # allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
