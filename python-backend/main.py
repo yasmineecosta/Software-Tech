@@ -25,6 +25,7 @@ app.add_middleware(
     CORSMiddleware,
     # allow_origins=["*"], 
     allow_origins=[frontend_origin,"http://127.0.0.1:5500"], # Substitua pelo domínio do seu frontend
+
     # allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
